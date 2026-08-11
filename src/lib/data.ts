@@ -361,17 +361,7 @@ export const SALARY_DATA: Record<string, { entry: [number,number], mid: [number,
   "Software Engineer": { entry: [75000, 105000], mid: [110000, 150000], senior: [150000, 205000], lead: [195000, 270000] },
 };
 
-// ============================================================
-// CAREER PATHS (taxonomy graph)
-// ============================================================
-export const CAREER_PATHS: Record<string, string[]> = {
-  "Data Analyst": ["Data Scientist", "Analytics Engineer", "Business Intelligence Engineer", "Product Analyst"],
-  "Data Scientist": ["Senior Data Scientist", "Machine Learning Engineer", "AI Research Scientist", "Data Science Manager"],
-  "Machine Learning Engineer": ["Senior ML Engineer", "MLOps Engineer", "AI Research Scientist", "Lead ML Engineer"],
-  "Software Engineer": ["Data Engineer", "Machine Learning Engineer", "MLOps Engineer", "Backend Engineer"],
-  "Data Engineer": ["Senior Data Engineer", "Analytics Engineer", "Data Architect", "Platform Engineer"],
-  "Business Analyst": ["Data Analyst", "Product Manager", "Analytics Engineer"],
-};
+
 
 // ============================================================
 // LEARNING RESOURCES BY SKILL

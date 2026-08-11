@@ -2,8 +2,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  Brain, LayoutDashboard, Search, Target, ScanLine, DollarSign,
-  Compass, Map, MessageSquare, TrendingUp, LineChart, Building2,
+  Brain, LayoutDashboard, Search, Target, ScanLine,
+  Map, MessageSquare, TrendingUp, LineChart, Building2,
   GitCompare, Bookmark, FileBarChart, Bell, User, Settings,
   Crown, ChevronLeft, ChevronRight, Sparkles
 } from "lucide-react";
@@ -22,8 +22,6 @@ const NAV_GROUPS = [
     items: [
       { label: "Skill Gap", icon: Target, href: "/skill-gap" },
       { label: "ATS Score", icon: ScanLine, href: "/ats" },
-      { label: "Salary Predict", icon: DollarSign, href: "/salary" },
-      { label: "Career Path", icon: Compass, href: "/career" },
       { label: "Roadmap", icon: Map, href: "/roadmap" },
       { label: "AI Chat", icon: MessageSquare, href: "/chat" },
     ],

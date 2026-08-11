@@ -3,8 +3,8 @@ import { useState } from "react";
 import Link from "next/link";
 import {
   Target, ScanLine, Briefcase, FileText, Upload, Sparkles, ArrowRight,
-  TrendingUp, Star, ChevronRight, CheckCircle2, Circle, DollarSign,
-  Compass, Map, MessageSquare, ChevronDown
+  TrendingUp, Star, ChevronRight, CheckCircle2, Circle,
+  Map, MessageSquare, ChevronDown
 } from "lucide-react";
 import { useAuthStore } from "@/lib/store/auth";
 import {
@@ -541,18 +541,6 @@ export default function DashboardPage() {
                   <ScanLine className="w-3.5 h-3.5 text-blue-400" />
                 </div>
                 <span className="text-[10px] font-medium text-gray-200">ATS Checker</span>
-              </Link>
-              <Link href="/salary" className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 flex flex-col items-center justify-center text-center transition-all">
-                <div className="w-7 h-7 rounded-xl bg-emerald-600/30 flex items-center justify-center mb-1.5">
-                  <DollarSign className="w-3.5 h-3.5 text-emerald-400" />
-                </div>
-                <span className="text-[10px] font-medium text-gray-200">Salary Predict</span>
-              </Link>
-              <Link href="/career" className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 flex flex-col items-center justify-center text-center transition-all">
-                <div className="w-7 h-7 rounded-xl bg-amber-600/30 flex items-center justify-center mb-1.5">
-                  <Compass className="w-3.5 h-3.5 text-amber-400" />
-                </div>
-                <span className="text-[10px] font-medium text-gray-200">Career Path</span>
               </Link>
               <Link href="/chat" className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 flex flex-col items-center justify-center text-center transition-all">
                 <div className="w-7 h-7 rounded-xl bg-pink-600/30 flex items-center justify-center mb-1.5">

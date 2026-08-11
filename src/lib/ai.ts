@@ -1,9 +1,9 @@
 import {
-  SkillGapReport, ATSReport, SalaryPrediction,
-  CareerRecommendation, RoadmapPhase, ChatMessage,
+  SkillGapReport, ATSReport,
+  RoadmapPhase, ChatMessage,
 } from "@/types";
 import { generateId, sleep } from "@/lib/utils";
-import { SALARY_DATA, CAREER_PATHS, SKILL_TRENDS, LEARNING_RESOURCES } from "@/lib/data";
+import { SKILL_TRENDS, LEARNING_RESOURCES } from "@/lib/data";
 
 // Helper function to call OpenRouter API endpoint
 async function callOpenRouter(prompt: string, system?: string, jsonMode: boolean = false) {
@@ -168,62 +168,7 @@ Return JSON:
   };
 }
 
-export async function runSalaryPrediction(
-  role: string,
-  seniority: string,
-  location: string,
-  skills: string[]
-): Promise<SalaryPrediction> {
-  const roleData = SALARY_DATA[role] || SALARY_DATA["Data Scientist"];
-  const seniorityKey = (seniority === "junior" ? "entry" : seniority || "mid") as keyof typeof roleData;
-  const [baseMin, baseMax] = roleData[seniorityKey] || roleData.mid;
 
-  const locationMult: Record<string, number> = {
-    "San Francisco": 1.35, "New York": 1.28, "Seattle": 1.22,
-    "Austin": 1.05, "Remote": 1.15, "Chicago": 1.08, "Boston": 1.18,
-    "India": 0.18, "London": 0.95, "Toronto": 0.72,
-  };
-  const locMult = Object.entries(locationMult).find(([k]) =>
-    location.toLowerCase().includes(k.toLowerCase())
-  )?.[1] ?? 1.0;
-
-  const skillBonus = Math.min(skills.filter(s =>
-    ["LLMs", "RAG", "PyTorch", "Kubernetes", "MLflow"].includes(s)
-  ).length * 8000, 30000);
-
-  const low = Math.round(baseMin * locMult);
-  const high = Math.round((baseMax + skillBonus) * locMult);
-  const median = Math.round((low + high) / 2);
-
-  const factors = [
-    { factor: "Base role demand", impact: 100, direction: "positive" as const },
-    { factor: `${location} location premium`, impact: Math.round((locMult - 1) * 100), direction: locMult >= 1 ? "positive" as const : "negative" as const },
-    { factor: "AI/ML skills premium", impact: Math.round(skillBonus / 1000), direction: "positive" as const },
-    { factor: `${seniority} seniority band`, impact: seniorityKey === "senior" ? 25 : seniorityKey === "lead" ? 45 : 0, direction: "positive" as const },
-  ].filter(f => f.impact !== 0);
-
-  return { role, seniority, location, skills, low, median, high, confidence: 0.88, factors };
-}
-
-export async function runCareerRecommendations(
-  currentRole: string,
-  _skills: string[]
-): Promise<CareerRecommendation[]> {
-  const paths = CAREER_PATHS[currentRole] || CAREER_PATHS["Data Analyst"];
-
-  return paths.slice(0, 5).map((role, i) => {
-    const roleData = SALARY_DATA[role] || SALARY_DATA["Data Scientist"];
-    return {
-      role,
-      feasibilityScore: Math.round(92 - i * 11),
-      rationale: `Strategic progression from ${currentRole}. Market demand is strong with direct skill overlap.`,
-      salaryRange: { min: roleData.mid[0], max: roleData.senior[1] },
-      demandTrend: i < 2 ? "rising" : i < 4 ? "stable" : "declining",
-      skillGapCount: i + 2,
-      transitionTime: `${3 + i * 2}-${6 + i * 2} months`,
-    } as CareerRecommendation;
-  });
-}
 
 export async function generateRoadmap(
   targetRole: string = "Data Scientist",

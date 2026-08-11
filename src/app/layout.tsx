@@ -4,8 +4,8 @@ import { Providers } from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "AI Job Market Analyzer — Career Intelligence Platform",
-  description: "AI-powered career intelligence platform. Skill gap analysis, ATS scoring, salary prediction, and personalized learning roadmaps grounded in real market data.",
-  keywords: "AI job market, career intelligence, skill gap analyzer, ATS score, salary prediction, data science jobs",
+  description: "AI-powered career intelligence platform. Skill gap analysis, ATS scoring, and personalized learning roadmaps grounded in real market data.",
+  keywords: "AI job market, career intelligence, skill gap analyzer, ATS score, data science jobs",
   openGraph: {
     title: "AI Job Market Analyzer",
     description: "Turn job market uncertainty into a clear, AI-driven career action plan.",

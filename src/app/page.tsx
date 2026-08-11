@@ -11,7 +11,6 @@ const FEATURES = [
   { icon: Target, title: "AI Skill Gap Analyzer", desc: "Quantify exactly where you stand against your target role with demand-weighted gap scoring.", color: "#818cf8", tag: "AI-Powered" },
   { icon: FileText, title: "ATS Score Generator", desc: "Simulate how any ATS system scores your resume and get an itemized remediation checklist.", color: "#3b82f6", tag: "Instant" },
   { icon: TrendingUp, title: "Skill Trend Analyzer", desc: "Track rising and falling skill demand across 150+ roles with 12 months of trend history.", color: "#10b981", tag: "Real Data" },
-  { icon: BarChart3, title: "Salary Prediction", desc: "ML-powered salary range predictions adjusted for role, geography, experience, and skills.", color: "#f59e0b", tag: "ML Model" },
   { icon: Brain, title: "Learning Roadmap", desc: "LLM-generated, phased learning plans grounded in your specific skill gaps — not generic advice.", color: "#ec4899", tag: "Generative AI" },
   { icon: MessageSquare, title: "AI Chat Assistant", desc: "Ask any career question. Get data-backed answers from 48,000+ job postings via RAG.", color: "#14b8a6", tag: "RAG" },
 ];
@@ -434,7 +433,7 @@ export default function LandingPage() {
             Every tool you need to <span className="gradient-purple-text">win the job market</span>
           </h2>
           <p className="text-gray-400 text-xs md:text-sm max-w-lg mx-auto">
-            6 AI-powered modules. One platform. A complete feedback loop from assessment to action.
+            5 AI-powered modules. One platform. A complete feedback loop from assessment to action.
           </p>
         </div>
 
@@ -506,7 +505,7 @@ export default function LandingPage() {
             },
             {
               name: "Pro", price: "$19", period: "/month",
-              features: ["Everything in Free", "Unlimited AI analyses", "Learning Roadmap Generator", "AI Chat Assistant (RAG)", "Salary Prediction with factors", "PDF/CSV export", "Priority support"],
+              features: ["Everything in Free", "Unlimited AI analyses", "Learning Roadmap Generator", "AI Chat Assistant (RAG)", "PDF/CSV export", "Priority support"],
               cta: "Start Pro Free Trial", href: "/signup", highlight: true,
             },
           ].map((plan) => (

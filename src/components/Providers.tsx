@@ -1,7 +1,19 @@
 "use client";
+
+import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
+import { useAuthStore } from "@/lib/store/auth";
 
 export function Providers({ children }: { children: React.ReactNode }) {
+  const initFirebaseListener = useAuthStore((s) => s.initFirebaseListener);
+
+  useEffect(() => {
+    const unsubscribe = initFirebaseListener();
+    return () => {
+      if (unsubscribe) unsubscribe();
+    };
+  }, [initFirebaseListener]);
+
   return (
     <>
       {children}

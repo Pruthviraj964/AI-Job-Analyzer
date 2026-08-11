@@ -95,27 +95,7 @@ export interface ATSReport {
   createdAt: string;
 }
 
-export interface SalaryPrediction {
-  role: string;
-  seniority: string;
-  location: string;
-  skills: string[];
-  low: number;
-  median: number;
-  high: number;
-  confidence: number;
-  factors: { factor: string; impact: number; direction: "positive" | "negative" }[];
-}
 
-export interface CareerRecommendation {
-  role: string;
-  feasibilityScore: number;
-  rationale: string;
-  salaryRange: { min: number; max: number };
-  demandTrend: "rising" | "stable" | "declining";
-  skillGapCount: number;
-  transitionTime: string;
-}
 
 export interface RoadmapPhase {
   phase: number;
@@ -126,7 +106,7 @@ export interface RoadmapPhase {
     resourceType: "course" | "project" | "certification" | "article";
     estimatedHours: number;
     priority: "critical" | "high" | "medium";
-    resources: { title: string; url: string; platform: string }[];
+    resources?: { title: string; url: string; platform: string }[];
     completed?: boolean;
   }[];
 }
@@ -160,7 +140,7 @@ export interface Bookmark {
 
 export interface Report {
   id: string;
-  type: "skill_gap" | "ats_score" | "salary_prediction" | "roadmap";
+  type: "skill_gap" | "ats_score" | "roadmap";
   title: string;
   summary: string;
   score?: number;

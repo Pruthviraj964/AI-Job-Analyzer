@@ -1,5 +1,5 @@
 "use client";
-import { FileBarChart, Target, ScanLine, DollarSign, Map, Download, Trash2 } from "lucide-react";
+import { FileBarChart, Target, ScanLine, Map, Download, Trash2 } from "lucide-react";
 import { useAppStore } from "@/lib/store/app";
 import { timeAgo, scoreColor } from "@/lib/utils";
 import Link from "next/link";
@@ -8,7 +8,6 @@ import toast from "react-hot-toast";
 const TYPE_META: Record<string, { icon: React.ElementType; color: string; label: string; href: string }> = {
   skill_gap: { icon: Target, color: "#7c3aed", label: "Skill Gap", href: "/skill-gap" },
   ats_score: { icon: ScanLine, color: "#3b82f6", label: "ATS Score", href: "/ats" },
-  salary_prediction: { icon: DollarSign, color: "#10b981", label: "Salary", href: "/salary" },
   roadmap: { icon: Map, color: "#f59e0b", label: "Roadmap", href: "/roadmap" },
 };
 
@@ -23,7 +22,7 @@ export default function ReportsPage() {
             <FileBarChart className="w-8 h-8 text-blue-400" />
           </div>
           <h2 className="text-xl font-bold mb-2">No reports yet</h2>
-          <p className="text-gray-400 mb-6">Run an AI analysis — Skill Gap, ATS Score, or Salary Prediction — to generate your first report.</p>
+          <p className="text-gray-400 mb-6">Run an AI analysis — Skill Gap or ATS Score — to generate your first report.</p>
           <div className="flex gap-3">
             <Link href="/skill-gap" className="btn btn-primary">Run Skill Gap</Link>
             <Link href="/ats" className="btn btn-ghost">Check ATS</Link>
